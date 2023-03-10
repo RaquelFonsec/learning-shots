@@ -5,14 +5,11 @@ class PagesController < ApplicationController
       if params[:filter].present?
         @trails = Trail.where(category: params[:filter].capitalize)
       else
-      @trails = Trail.all
+        @trails = Trail.all
       end
-      end
-
-      def my_trails
-        @trails = current_user.trails
-      end
-    end
-
   end
 
+  def my_trails
+     @trails = current_user.trails
+  end
+end
