@@ -4,3 +4,4 @@ class Trail < ApplicationRecord
   CATEGORIES = ["gastronomia"]
   validates :category, presence: true, inclusion: { in: CATEGORIES.map { |category| category.capitalize }}
 end
+
