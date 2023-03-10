@@ -29,7 +29,7 @@ gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
-
+gem "faker", "~> 3.1"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -78,3 +78,5 @@ group :test do
 end
 
 gem "faker", "~> 3.1"
+
+gem "httparty", "~> 0.21.0"
