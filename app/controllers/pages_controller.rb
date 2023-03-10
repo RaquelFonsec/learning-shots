@@ -7,9 +7,9 @@ class PagesController < ApplicationController
     else
       @trails = Trail.all
     end
+  end
 
-    def my_trails
-      @trails = current_user.trails
-    end
+  def my_trails
+    @trails = current_user.trails
   end
 end

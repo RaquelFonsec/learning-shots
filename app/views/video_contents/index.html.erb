@@ -1,0 +1,32 @@
+
+<h1>Video Contents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Video ID</th>
+      <th>Title</th>
+      <th>Thumbnail URL</th>
+      <th>Trail ID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @video_contents.each do |video_content| %>
+      <tr>
+        <td><%= video_content.video_id %></td>
+        <td><%= video_content.title %></td>
+        <td><%= video_content.thumb_url %></td>
+        <td><%= video_content.trail_id %></td>
+        <td><%= link_to 'Show', video_content %></td>
+        <td><%= link_to 'Edit', edit_video_content_path(video_content) %></td>
+        <td><%= link_to 'Destroy', video_content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Video Content', new_video_content_path %>
