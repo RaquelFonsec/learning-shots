@@ -1,0 +1,25 @@
+
+<p>
+  <strong>Video ID:</strong>
+  <%= @video_content.video_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @video_content.title %>
+</p>
+
+<p>
+  <strong>Thumbnail URL:</strong>
+  <%= @video_content.thumb_url %>
+</p>
+
+<p>
+  <strong>Trail ID:</strong>
+  <%= @video_content.trail_id %>
+</p>
+
+<br>
+
+<%= link_to 'Edit', edit_video_content_path(@video_content) %> |
+<%= link_to 'Back', video_contents_path %>
