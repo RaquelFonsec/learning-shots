@@ -11,4 +11,5 @@ class PagesController < ApplicationController
       def my_trails
         @trails = current_user.trails
       end
+    end
   end
