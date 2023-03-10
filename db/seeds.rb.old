@@ -1,0 +1,93 @@
+require 'net/http'
+require 'json'
+require 'faker'
+
+VideoContent.destroy_all
+Trail.destroy_all
+User.destroy_all
+
+
+#create_user_with_trails_and_videos("Pedro@gmail.com", "password 123456")
+#create_user_with_trails_and_videos("Carlos@gmail.com", "password 123456")
+user = User.create!(email: 'admin2@email.com', password: '123456')
+
+
+
+
+
+# Define a função para obter os vídeos populares
+def get_popular_videos
+  url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=US&key=#{ENV["API_KEY"]}"
+  uri = URI(url)
+  response = Net::HTTP.get(uri)
+  result = JSON.parse(response)
+  result["items"].each do |video_contents|
+    video_params = {}
+    video_params[:video_id] = video_contents["id"]
+    video_params[:title] = video_contents["snippet"]["title"]
+    video_params[:thumb_url] = video_contents["snippet"]["thumbnails"]["maxres"]["url"]
+
+  end
+  debugger
+end
+
+
+  # Criar trilhas para o usuário
+  1.times do
+    trails = Trail.create!(title: Faker::Book.title, user: user , category: Trail::CATEGORIES.sample.capitalize)
+
+    # Obter os vídeos populares e adicione-os à trilha
+    get_popular_videos.each do |video_contents|
+      video_params = {}
+      video_params[:video_id] = video_contents["id"]
+      video_params[:title] = video_contents["snippet"]["title"]
+      video_params[:thumb_url] = video_contents["snippet"]["thumbnails"]["maxres"]["url"]
+      video = VideoContent.new(video_params)
+      video.trail = trails
+      video.save
+    end
+  end
+
+
+# Crie 5 usuários com trilhas e vídeos
+#5.times do
+  #email = Faker::Internet.email
+ # password = Faker::Internet.password
+  #create_user_with_trails_and_videos(email, password)
+#end
+######################################
+
+=begin require 'httparty'
+require 'json'
+
+playlist_id = 'PLAYLIST_ID_HERE'
+api_key = 'AIzaSyCYexxBwGIUGtiNzrZ7r4i1EzGgGM3Cv1g'
+
+response = HTTParty.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=#{playlist_id}&key=#{api_key}")
+videos = response.parsed_response['items']
+
+File.open('videos.json', 'w') do |file|
+  file.write(JSON.pretty_generate(videos))
+end
+
+puts "These are the videos available in the playlist:"
+videos.each_with_index do |video, index|
+  puts "#{index + 1}. #{video['snippet']['title']}"
+end
+
+print "Enter the indexes of the videos you want to save (comma-separated): "
+selected_indexes = gets.chomp.split(',').map(&:to_i)
+
+selected_videos = selected_indexes.map { |index| videos[index - 1] }
+
+File.open('selected_videos.json', 'w') do |file|
+  file.write(JSON.pretty_generate(selected_videos))
+end
+
+puts "The selected videos have been saved to selected_videos.json."
+
+selected_videos.each do |video|
+  title = video['snippet']['title']
+  Video.create(title: title)
+end
+ =end
