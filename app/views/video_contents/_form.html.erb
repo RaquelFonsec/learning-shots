@@ -1,0 +1,37 @@
+<%= form_for @video_content do |f| %>
+  <% if @video_content.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@video_content.errors.count, "error") %></h2>
+
+      <ul>
+      <% @video_content.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :video_id %>
+    <%= f.text_field :%>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :thumb_url %>
+    <%= f.text_field :thumb_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trail_id %>
+    <%= f.text_field :trail_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
