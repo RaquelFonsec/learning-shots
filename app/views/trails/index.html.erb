@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Trails</h1>
+
+<div id="trails">
+  <% @trails.each do |trail| %>
+    <%= render trail %>
+    <p>
+      <%= link_to "Show this trail", trail %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New trail", new_trail_path %>
