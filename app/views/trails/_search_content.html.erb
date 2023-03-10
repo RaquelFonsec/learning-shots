@@ -1,12 +1,12 @@
-<%= form_with url: search_path, method: :get, class: "d-flex mb-3" do %>
+<%= form_with html: {data:{controller: "youtube-search", action: "submit->youtube-search#search"}, class: "d-flex mb-3"} do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Search for Youtube Videos"
+    placeholder: "Search for Youtube Videos",
+    data: {target: "youtube-search.query"}
   %>
   <%= submit_tag "Search!", class: "btn btn-primary mr-3" %>
 <% end %>
-
 
 <% if @results.present? %>
   <ul>
