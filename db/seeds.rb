@@ -11,10 +11,6 @@ User.destroy_all
 #create_user_with_trails_and_videos("Carlos@gmail.com", "password 123456")
 user = User.create!(email: 'admin2@email.com', password: '123456')
 
-
-
-
-
 # Define a função para obter os vídeos populares
 def get_popular_videos
   url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=US&key=#{ENV["API_KEY"]}"
