@@ -24,7 +24,7 @@ end
 
   # Criar trilhas para o usuário
   1.times do
-    trails = Trail.create!(title: Faker::Book.title, user: user , category: Trail::CATEGORIES.sample.capitalize)
+    trails = Trail.create!(title: Faker::Book.title, user: user, category: Trail::CATEGORIES.sample.capitalize)
 
     # Obter os vídeos populares e adicione-os à trilha
     get_popular_videos.each do |video_contents|
