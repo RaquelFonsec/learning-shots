@@ -40,6 +40,10 @@ class TrailsController < ApplicationController
     redirect_to trails_path, status: :see_other, notice: "Trail deleted successfully"
   end
 
+  def search
+    @results = YoutubeService.new.search_videos(params[:query])
+  end
+
   private
 
   def trail_params

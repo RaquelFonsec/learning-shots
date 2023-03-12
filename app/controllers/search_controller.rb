@@ -1,20 +1,13 @@
+
 class SearchController < ApplicationController
-  def index
-    @query = params[:query]
-    @results = YoutubeService.new(@query).call
-    respond_to do |format|
-      format.json { render json: @results }
+  def search
+    search_query = params[:query]
+    video_url = YoutubeService.new(search_query).call
+    if video_url.present?
+      render json: { video_url: video_url }
+    else
+      render json: { error: "No videos found" }, status: :not_found
     end
   end
-
-  private
-
-  def perform_search(query)
-
-    url = "#{BASE_URL}?part=snippet&q=#{URI.encode(query)}&key=#{ENV['YOUTUBE_API_KEY']}"
-    response = HTTP.get(url)
-    return [] unless response.code == 200
-
-    JSON.parse(response.body)['items']
-  end
 end
+
