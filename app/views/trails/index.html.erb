@@ -1,16 +1,20 @@
 
 
-<h1>Trails</h1>
-
-<p style="color: green"><%= notice %></p>
-
-<div id="trails">
-  <% @trails.each do |trail| %>
-    <%= render trail %>
-    <p>
-      <%= link_to "Show this trail", trail %>
-    </p>
-  <% end %>
+<h1 class="text-center mt-4 mb-4">Trails</h1>
+<div class="container">
+  <div class="cards" id="trails">
+    <% @trails.each do |trail| %>
+      <div class="card">
+        <%= link_to image_tag("https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VzaGl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", class: "card-img-top"), trail %>
+        <div class="card-body">
+          <h5 class="card-title"><%=trail.title%></h5>
+          <div class="card-info">
+            <p class="card-text"><%=trail.description%></p>
+            <p class="card-text"><%=trail.category%></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-
 <%= link_to "New trail", new_trail_path %>

@@ -8,6 +8,22 @@
   letter-spacing: 0.05em;
   text-align: center;
 }
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.padding-body {
+  padding-top: 72px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
 .logo-title {
   display: flex;
   justify-content: center;
