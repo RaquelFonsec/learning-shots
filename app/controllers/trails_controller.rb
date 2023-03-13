@@ -5,6 +5,7 @@ class TrailsController < ApplicationController
 
   def show
     @trail = Trail.find(params[:id])
+    @video_content = VideoContent.new
   end
 
   def new

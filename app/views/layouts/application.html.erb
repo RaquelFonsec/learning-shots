@@ -3,6 +3,9 @@
   <head>
     <title>LearningShots</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,11 +15,10 @@
 
   <body>
   <%= render "shared/navbar" %>
-
   <%= render "shared/flashes" %>
-<div class="container">
+  <div class="padding-body">
     <%= yield %>
-    </div>
+  </div>
   </body>
   <%= render "shared/footer" %>
 </html>
