@@ -9,6 +9,7 @@ class TrailsController < ApplicationController
   def show
     authorize @trail
     @trail = Trail.find(params[:id])
+    @average = @trail.reviews.empty? ? 0 : @trail.reviews.pluck(:rating).reduce(:+) / @trail.reviews.count
     @video_content = VideoContent.new
   end
 
