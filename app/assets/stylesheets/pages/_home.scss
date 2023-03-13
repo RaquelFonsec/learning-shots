@@ -12,7 +12,6 @@
 .container {
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 16px;
 }
 
 .padding-body {
@@ -22,7 +21,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  padding-left: 10px;
+  // padding-left: 50px;
+  // padding-right: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .logo-title {
