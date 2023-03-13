@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :trails do
     resources :video_contents,only: [:new, :create]
+    resources :reviews, only: [:new, :create]
   end
   resources :video_contents, only:[:show,:destroy]
 end
