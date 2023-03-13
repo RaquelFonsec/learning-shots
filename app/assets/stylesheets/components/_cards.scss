@@ -2,32 +2,20 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  margin-top: 40px;
+  max-height: 500px;
+
 }
 
 .card-img-top {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  width: 700px;
-  height: 300px;
-  object-fit: cover;
-}
 
-.card-body {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .card-title {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.card-subtitle {
-  font-size: 1.2rem;
-  font-weight: 500;
   margin-bottom: 0.5rem;
 }
 

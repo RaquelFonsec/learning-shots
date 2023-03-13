@@ -1,7 +1,36 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon ">
   <div class="container-fluid">
+  <nav role="navigation">
+  <div id="menuToggle">
+    <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+    <input type="checkbox" />
+
+    <!--
+    Some spans to act as a hamburger.
+
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+    <ul id="menu">
+      <a href="#"><li> <%= link_to "Home", root_path, class: "nav-link" %></li></a>
+      <a href="#"><li><%= link_to "My Trails", trails_path, class: "dropdown-item" %></li></a>
+      <a href="#"><li><%= link_to "New Trails", new_trail_path, class: "dropdown-item" %></li></a>
+    </ul>
+  </div>
+</nav>
     <div class="d-flex justify-content-center">
-      <%= link_to root_path, class: "navbar-brand" do %>
+       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "logo-white.png", class: "navbar-logo" %>
       <% end %>
       <h1>Learning Shots</h1>
@@ -13,14 +42,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My Trails", trails_path, class: "dropdown-item" %>
-              <%= link_to "New Trails", new_trail_path, class: "dropdown-item" %>
+              <%= link_to "Edit my accoung",   edit_user_registration_path, class: "dropdown-item" %>
+              <%# <%= link_to "New Trails", new_trail_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
