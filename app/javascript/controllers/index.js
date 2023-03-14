@@ -18,3 +18,6 @@ application.register("form-submit", FormSubmitController)
 
 import YoutubeSearchController from "./youtube_search_controller"
 application.register("youtube-search", YoutubeSearchController)
+
+import YoutubeIndexController from "./youtube_index_controller"
+application.register("youtube-index", YoutubeIndexController)
