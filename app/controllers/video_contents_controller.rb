@@ -1,6 +1,6 @@
 class VideoContentsController < ApplicationController
   before_action :set_video_content, only: [:show, :edit, :update, :destroy]
-  skip_after_action :verify_authorized
+#  skip_after_action :verify_authorized
 
   def index
     @video_contents = VideoContent.all

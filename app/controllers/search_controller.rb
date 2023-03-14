@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  skip_after_action :verify_authorized
+#  skip_after_action :verify_authorized
 
   def search
     search_query = params[:query]
