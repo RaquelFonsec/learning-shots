@@ -5,10 +5,10 @@
 <div>
 
   <%= link_to "Back to trails", trails_path %>
-  <% if policy(@trail).edit? %>
+  <%# if policy(@trail).edit? %>
     <%= link_to "Edit this trail", edit_trail_path(@trail) %>
     <%= button_to "Destroy this trail", @trail, method: :delete, data: {confirm: "Are you sure?"} %>
-  <% end %>
+  <%# end %>
 
 </div>
 <%= render "trails/search_content", locals:{trail: @trail} %>
