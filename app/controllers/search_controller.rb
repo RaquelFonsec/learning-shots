@@ -1,5 +1,6 @@
-
 class SearchController < ApplicationController
+  skip_after_action :verify_authorized
+
   def search
     search_query = params[:query]
     video_url = YoutubeService.new(search_query).call
@@ -10,4 +11,3 @@ class SearchController < ApplicationController
     end
   end
 end
-

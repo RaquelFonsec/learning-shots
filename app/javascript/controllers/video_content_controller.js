@@ -22,5 +22,9 @@ static values = {id: String, title: String, description: String, thumbnail: Stri
       body: JSON.stringify(params)
     })
     .then(response =>response.json())
+    .then((data)=>{
+      console.log(data)
+
+    })
   }
 }

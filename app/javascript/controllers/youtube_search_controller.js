@@ -30,9 +30,9 @@ export default class extends Controller {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
-        if (data && data.items && data.items.length > 0) {
-          const videos = data.items;
+        //console.log(data)
+        if (data && data.video_url && data.video_url.length > 0) {
+          const videos = data.video_url;
           let html = "";
           videos.forEach(video => {
             html += `
@@ -63,7 +63,7 @@ export default class extends Controller {
           }
         }
         else {
-          console.error("No videos found");
+          console.error("sem resultados");
         }
       })
       .catch(error => {
