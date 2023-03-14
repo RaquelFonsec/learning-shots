@@ -1,5 +1,5 @@
 class TrailsController < ApplicationController
-  before_action :set_trail, only: %i[ show edit update destroy ]
+ # before_action :set_trail, only: %i[ show edit update destroy ]
 
   def index
     @trails = policy_scope(trail)
@@ -7,9 +7,9 @@ class TrailsController < ApplicationController
   end
 
   def show
-    authorize @trail
     @trail = Trail.find(params[:id])
     @video_content = VideoContent.new
+    authorize @trail
   end
 
   def new

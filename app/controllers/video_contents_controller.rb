@@ -33,7 +33,7 @@ class VideoContentsController < ApplicationController
   def update
     respond_to do |format|
       if @video_content.update(video_content_params)
-        format.html { redirect_to @video_content, notice: '.' }
+        format.html { redirect_to @video_content, notice: 'O conteudo do video foi atualizado com sucesso' }
         format.json { render :show, status: :ok, location: @video_content }
       else
         format.html { render :edit }
@@ -45,7 +45,7 @@ class VideoContentsController < ApplicationController
   def destroy
     @video_content.destroy
     respond_to do |format|
-      format.html { redirect_to video_contents_url, notice: 'V.' }
+      format.html { redirect_to video_contents_url, notice: 'O conteudo do video foi excluido com sucesso' }
       format.json { head :no_content }
     end
   end
@@ -57,6 +57,6 @@ class VideoContentsController < ApplicationController
   end
 
   def video_content_params
-    params.require(:video_content).permit(:video_id, :title, :thumb_url, :trail_id)
+    params.require(:video_content).permit(:video_id, :title, :thumb_url, :trail_id, :description)
   end
 end
