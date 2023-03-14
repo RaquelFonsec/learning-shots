@@ -13,7 +13,6 @@
 </div>
 <%= render "trails/search_content", locals:{trail: @trail} %>
 <% if @results.present? %>
-  <h3>Resultados da pesquisa para "<%= params[:query] %>"</h3>
   <%@results.each do |video| %>
   <%= render "trails/video", locals:{video: video} %>
   <%end %>

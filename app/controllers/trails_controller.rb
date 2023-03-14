@@ -1,8 +1,9 @@
 class TrailsController < ApplicationController
  # before_action :set_trail, only: %i[ show edit update destroy ]
+#  skip_after_action :verify_authorized
 
-  def index
-    @trails = policy_scope(trail)
+ def index
+    @trails = policy_scope(Trail)
     authorize @trails
   end
 

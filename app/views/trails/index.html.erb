@@ -1,15 +1,17 @@
 <div class="container d-flex justify-content-center">
   <div class="row col-6">
-    <%= form_with html: {data:{controller: "youtube-search", action: "submit->youtube-search#search"}, class: "d-flex mb-3 search-box"} do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Search for Youtube Videos",
-        data: {target: "youtube-search.query"}
-      %>
-      <%= submit_tag "Search!", class: "btn btn-primary mr-3" %>
-    <% end %>
-  </div>
+<div class='my-search-form' data-controller="youtube-index" >
+<%= form_with( html: {data:{ action: "submit->youtube-index#search"}, class: " d-flex mb-3"}) do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search for Youtube Videos",
+    data: { "youtube-index-target" => "query"}
+  %>
+  <%= submit_tag "Search!", class: "btn btn-primary mr-3" %>
+<% end %>
+<div data-youtube-index-target="results">
+</div>
 </div>
 <% if @results.present? %>
   <ul>
