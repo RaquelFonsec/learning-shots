@@ -8,6 +8,8 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import VideoContentController from "./video_content_controller"
+application.register("video-content", VideoContentController)
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
 

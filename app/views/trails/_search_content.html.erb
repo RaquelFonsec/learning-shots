@@ -1,13 +1,17 @@
-<%= form_with html: {data:{controller: "youtube-search", action: "submit->youtube-search#search"}, class: "d-flex mb-3"} do %>
+
+<div class='my-search-form' data-controller="youtube-search" data-youtube-search-trail-value="<%= @trail.id %>">
+<%= form_with( html: {data:{ action: "submit->youtube-search#search"}, class: " d-flex mb-3"}) do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Search for Youtube Videos",
-    data: {target: "youtube-search.query"}
+    data: { "youtube-search-target" => "query"}
   %>
   <%= submit_tag "Search!", class: "btn btn-primary mr-3" %>
 <% end %>
-
+<div data-youtube-search-target="results">
+</div>
+</div>
 <% if @results.present? %>
   <ul>
     <% @results.each do |result| %>

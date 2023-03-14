@@ -80,5 +80,3 @@ group :test do
 end
 
 gem "faker", "~> 3.1"
-
-gem "httparty", "~> 0.21.0"

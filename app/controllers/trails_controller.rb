@@ -1,5 +1,5 @@
 class TrailsController < ApplicationController
-  before_action :set_trail, only: %i[ show edit update destroy ]
+ # before_action :set_trail, only: %i[ show edit update destroy ]
 
   def index
     @trails = policy_scope(trail)
@@ -7,10 +7,10 @@ class TrailsController < ApplicationController
   end
 
   def show
-    authorize @trail
     @trail = Trail.find(params[:id])
     @average = @trail.reviews.empty? ? 0 : @trail.reviews.pluck(:rating).reduce(:+) / @trail.reviews.count
     @video_content = VideoContent.new
+    authorize @trail
   end
 
   def new
@@ -51,6 +51,10 @@ class TrailsController < ApplicationController
     @trail.destroy
 
     redirect_to trails_path, status: :see_other, notice: "Trail deleted successfully"
+  end
+
+  def search
+    @results = YoutubeService.new.search_videos(params[:query])
   end
 
   private
