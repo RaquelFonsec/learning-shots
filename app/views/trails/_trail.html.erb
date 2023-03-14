@@ -23,4 +23,19 @@
 <li><%=video.title %> <%= link_to "see video","https://www.youtube.com/watch?v=#{video.video_id}" %>
 <% end %>
 </ul>
+
+  <p>
+    <strong>Ratings:</strong>
+    <% if @average.present? %>
+      <span data-controller="star-rating" data-star-rating-average="<%= @average %>" data-star-rating-max="5">
+        <% (1..5).each do |i| %>
+          <% if i <= @average %>
+            <i class="fas fa-star" data-action="click->form-submit#envia"></i>
+          <% else %>
+            <i class="far fa-star" data-action="click->form-submit#envia"></i>
+          <% end %>
+        <% end %>
+      </span>
+    <% end %>
+  </p>
 </div>
