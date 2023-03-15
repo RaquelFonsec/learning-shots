@@ -3,8 +3,16 @@ class TrailsController < ApplicationController
 #  skip_after_action :verify_authorized
 
  def index
+  if params[:filter].present?
+    @trails = Trail.where(category: params[:filter].capitalize)
+  else
     @trails = Trail.all
+  end
  #   authorize @trails
+  end
+
+  def my_trails
+    @trails = current_user.trails
   end
 
   def show
@@ -61,6 +69,6 @@ class TrailsController < ApplicationController
   private
 
   def trail_params
-    params.require(:trail).permit(:title, :description, :category)
+    params.require(:trail).permit(:title, :description, :category, :photo)
   end
 end

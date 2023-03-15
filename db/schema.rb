@@ -72,6 +72,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_155722) do
 
   add_foreign_key "meetings", "trails"
   add_foreign_key "meetings", "users"
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "reviews", "trails"
   add_foreign_key "reviews", "users"
   add_foreign_key "trails", "users"

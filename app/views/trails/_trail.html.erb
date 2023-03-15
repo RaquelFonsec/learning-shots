@@ -1,7 +1,7 @@
 <div class="row col-6">
   <div class="cards" id="cards-show">
     <div class="card" id="card-show">
-      <%= image_tag "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VzaGl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", class: "card-img-top" %>
+      <img class="card-img-top" src="<%= cl_image_path trail.photo.key, crop: :fill %>" alt="Card image cap">
       <div class="content">
         <h3 class="card-title"><strong><%=trail.title%></strong></h3>
         <p class="card-text"><%=trail.description%></p>
@@ -15,7 +15,8 @@
       <div class="card" id="card-video">
         <img class="card-img-top" src="<%= video.thumb_url %>" alt="">
         <h3><%=video.title %> <%= link_to "see video","https://www.youtube.com/watch?v=#{video.video_id}", target: "_blank" %></h3>
-        <%= button_to "Destroy this video", video_content_path, method: :delete, data: {confirm: "Are you sure?"} %>
+        <%#= button_to "Destroy this video", video_content_path(video), method: :delete, data: {turbo: false, confirm: "Are you sure?"} %>
+        <%= button_to "Delete Video", video_content_path(video), method: :delete, remote: true, data: {turbo: false, confirm: "Are you sure?", "turbo-confirm": "Are you sure?", "turbo-method": "delete", "controller": "video-content" } %>
       </div>
     <% end %>
   </div>
