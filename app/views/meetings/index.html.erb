@@ -1,0 +1,15 @@
+
+<%= @start_date %>
+<%= @meetings.count %>
+<div class="calendar-container">
+  <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
+    <%= date %>
+
+    <% meetings.each do |meeting| %>
+      <div class="meeting">
+        <p><%= meeting.trail.title %></p>
+        <small><%= meeting.time unless meeting.multi_days? %></small>
+      </div>
+    <% end %>
+  <% end %>
+</div>

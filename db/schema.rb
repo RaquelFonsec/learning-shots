@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_145724) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_155722) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "meetings", force: :cascade do |t|
+    t.bigint "trail_id", null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trail_id"], name: "index_meetings_on_trail_id"
+    t.index ["user_id"], name: "index_meetings_on_user_id"
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.string "content"
@@ -59,6 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_145724) do
     t.index ["trail_id"], name: "index_video_contents_on_trail_id"
   end
 
+  add_foreign_key "meetings", "trails"
+  add_foreign_key "meetings", "users"
   add_foreign_key "reviews", "trails"
   add_foreign_key "reviews", "users"
   add_foreign_key "trails", "users"

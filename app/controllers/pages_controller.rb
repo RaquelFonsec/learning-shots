@@ -13,3 +13,4 @@ class PagesController < ApplicationController
     @trails = current_user.trails
   end
 end
+
