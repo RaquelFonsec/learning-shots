@@ -1,36 +1,22 @@
-<div id="<%= dom_id trail %>">
-  <p>
-    <strong>User:</strong>
-    <%= trail.user_id %>
-  </p>
-
-  <p>
-    <strong>Title:</strong>
-    <%= trail.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= trail.description %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= trail.category %>
-  </p>
-
-  <p>
-    <strong>Ratings:</strong>
-    <% if @average.present? %>
-      <span data-controller="star-rating" data-star-rating-average="<%= @average %>" data-star-rating-max="5">
-        <% (1..5).each do |i| %>
-          <% if i <= @average %>
-            <i class="fas fa-star" data-action="click->form-submit#envia"></i>
-          <% else %>
-            <i class="far fa-star" data-action="click->form-submit#envia"></i>
-          <% end %>
-        <% end %>
-      </span>
+<div class="row col-6">
+  <div class="cards" id="cards-show">
+    <div class="card" id="card-show">
+      <%= image_tag "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VzaGl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", class: "card-img-top" %>
+      <div class="content">
+        <h3 class="card-title"><strong><%=trail.title%></strong></h3>
+        <p class="card-text"><%=trail.description%></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row col-6">
+  <div class="cards">
+    <% trail.video_contents.each do |video| %>
+      <div class="card" id="card-video">
+        <img class="card-img-top" src="<%= video.thumb_url %>" alt="">
+        <h3><%=video.title %> <%= link_to "see video","https://www.youtube.com/watch?v=#{video.video_id}", target: "_blank" %></h3>
+        <%= button_to "Destroy this video", video_content_path, method: :delete, data: {confirm: "Are you sure?"} %>
+      </div>
     <% end %>
-  </p>
+  </div>
 </div>

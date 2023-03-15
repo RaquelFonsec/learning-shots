@@ -10,7 +10,7 @@ export default class extends Controller {
       console.error("Incorrect element for search controller");
       return;
     }
-
+    console.log("ola")
 
   }
 
@@ -37,10 +37,7 @@ export default class extends Controller {
           videos.forEach(video => {
             html += `
               <div class="video" data-controller="video-content"
-              data-video-content-trail-value="${this.trailValue}"
-             data-video-content-title-value="${video.snippet.title}"
-             data-video-content-description-value="${video.snippet.description}"
-             data-video-content-thumbnail-value="${video.snippet.thumbnails.medium.url}"
+                
               data-video-content-id-value="${video.id.videoId}">
                 <div class="thumbnail">
                   <img src="${video.snippet.thumbnails.medium.url}">
@@ -49,7 +46,7 @@ export default class extends Controller {
                   <h2>${video.snippet.title}</h2>
                   <p>${video.snippet.description}</p>
                 </div>
-                <button class="btn btn-sm btn-secondary" data-action="click->video-content#create">Add video</button>
+                <a class="btn btn-sm btn-secondary" target="_blank" href="https://www.youtube.com/watch?v=${video.id.videoId}" >See video</a>
               </div>
             `;
           });
