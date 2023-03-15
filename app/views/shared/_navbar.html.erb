@@ -23,8 +23,8 @@
     but hey, it's pure CSS magic.
     -->
     <ul id="menu">
-      <a href="#"><li> <%= link_to "Home", root_path, class: "nav-link" %></li></a>
-      <a href="#"><li><%= link_to "My Trails", trails_path, class: "dropdown-item" %></li></a>
+      <a href="#"><li> <%= link_to "Home", trails_path, class: "nav-link" %></li></a>
+      <a href="#"><li><%= link_to "My Trails", my_trails_path, class: "dropdown-item" %></li></a>
       <a href="#"><li><%= link_to "New Trails", new_trail_path, class: "dropdown-item" %></li></a>
     </ul>
   </div>
