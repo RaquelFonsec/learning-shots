@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   post 'search', to: 'search#search', as: 'search'
+  get 'my_trails', to: 'trails#my_trails', as: 'my_trails'
 
 
   resources :trails do
