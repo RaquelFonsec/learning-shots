@@ -4,20 +4,23 @@
 
 import { application } from "./application"
 
-
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
-import VideoContentController from "./video_content_controller"
-application.register("video-content", VideoContentController)
-import StarRatingController from "./star_rating_controller"
-application.register("star-rating", StarRatingController)
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
 
 import FormSubmitController from "./form_submit_controller"
 application.register("form-submit", FormSubmitController)
 
-import YoutubeSearchController from "./youtube_search_controller"
-application.register("youtube-search", YoutubeSearchController)
+import HelloController from "./hello_controller"
+application.register("hello", HelloController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
+
+import VideoContentController from "./video_content_controller"
+application.register("video-content", VideoContentController)
 
 import YoutubeIndexController from "./youtube_index_controller"
 application.register("youtube-index", YoutubeIndexController)
+
+import YoutubeSearchController from "./youtube_search_controller"
+application.register("youtube-search", YoutubeSearchController)

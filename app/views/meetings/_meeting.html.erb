@@ -1,0 +1,17 @@
+
+<%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
+  <%= date %>
+
+  <% meetings.each do |meeting| %>
+    <div class="meeting">  <-- We will add some style to the meeting class later so let's add it now -->
+      <p><%= meeting.name %></p>
+    </div>
+  <% end %>
+<% end %>
+<form data-controller="flatpickr">
+  <label for="start_time">Start Time:</label>
+  <input type="text" name="start_time" id="start_time" data-flatpickr-target="startTime">
+
+  <label for="end_time">End Time:</label>
+  <input type="text" name="end_time" id="end_time" data-flatpickr-target="endTime">
+</form>
