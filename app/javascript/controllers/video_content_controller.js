@@ -4,7 +4,9 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="video-content"
 export default class extends Controller {
-static values = {id: String, title: String, description: String, thumbnail: String, trail: String}
+  static values = {id: String, title: String, description: String, thumbnail: String, trail: String}
+  static targets = ["button", "message"]
+
   connect() {
 
   }
@@ -24,7 +26,10 @@ static values = {id: String, title: String, description: String, thumbnail: Stri
     .then(response =>response.json())
     .then((data)=>{
       console.log(data)
-
+      console.log(this.buttonTarget)
+      this.buttonTarget.innerText = "Video Added"
+      this.buttonTarget.disabled = true
+      this.messageTarget.hidden = false
     })
   }
 }

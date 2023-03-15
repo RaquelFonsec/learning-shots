@@ -2,7 +2,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "query", "results" ];
+  static targets = [ "query", "results", "clearResults" ];
   static values = { trail: Number}
 
   connect() {
@@ -49,13 +49,15 @@ export default class extends Controller {
                   <h2>${video.snippet.title}</h2>
                   <p>${video.snippet.description}</p>
                 </div>
-                <button class="btn btn-sm btn-secondary" data-action="click->video-content#create">Add video</button>
+                <button class="btn btn-sm btn-secondary" data-video-content-target="button" data-action="click->video-content#create">Add video</button>
+                  <div><small hidden="true" data-video-content-target="message">Video added sucessfully </small></div>
               </div>
             `;
           });
 
 
           if (this.hasResultsTarget) {
+            this.clearResultsTarget.hidden = false
             this.resultsTarget.insertAdjacentHTML('beforeend', html);
           }
           else {
