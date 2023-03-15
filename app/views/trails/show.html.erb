@@ -1,19 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<div class="container d-flex justify-content-center">
+  <div class="row col-6">
+    <%= render "trails/search_content", locals:{trail: @trail} %>
+    <% if @results.present? %>
+      <%@results.each do |video| %>
+      <%= render "trails/video", locals:{video: video} %>
+      <%end %>
+    <% end %>
+  </div>
+</div>
+<div class="container show-trails">
 
-<%= render @trail %>
-
-<div>
-
-  <%= link_to "Back to trails", trails_path %>
-  <%# if policy(@trail).edit? %>
-    <%= link_to "Edit this trail", edit_trail_path(@trail) %>
-    <%= button_to "Destroy this trail", @trail, method: :delete, data: {confirm: "Are you sure?"} %>
-  <%# end %>
+  <%= render @trail %>
 
 </div>
-<%= render "trails/search_content", locals:{trail: @trail} %>
-<% if @results.present? %>
-  <%@results.each do |video| %>
-  <%= render "trails/video", locals:{video: video} %>
-  <%end %>
-<% end %>
+<div>
+<div class="container d-flex justify-content-start">
+  <div class="row col-6">
+    <%= link_to "Back to trails", trails_path %>
+    <%# if policy(@trail).edit? %>
+      <%= link_to "Edit this trail", edit_trail_path(@trail) %>
+      <%= button_to "Destroy this trail", @trail, method: :delete, data: {confirm: "Are you sure?"} %>
+    <%# end %>
+  </div>
+</div>

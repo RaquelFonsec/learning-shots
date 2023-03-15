@@ -1,4 +1,8 @@
 // Specific CSS for your home-page
+* {
+  margin: 0;
+  padding: 0;
+}
 .logo-title h1 {
   font-family: 'Caveat', cursive;
   font-style: normal;
@@ -12,12 +16,13 @@
 .container {
   max-width: 100%;
   margin: 0 auto;
+  padding: 0;
 }
 
 .padding-body {
   padding-top: 72px;
 }
-.cards {
+#cards-home{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
@@ -25,6 +30,28 @@
   // padding-right: 50px;
   margin-left: 50px;
   margin-right: 50px;
+}
+
+#cards-index{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  // padding-left: 50px;
+  // padding-right: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+#cards-show {
+
+
+}
+
+.show-trails {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
 }
 
 .logo-title {
@@ -57,12 +84,12 @@
   object-fit: cover;
 }
 
-.container .content {
+.content {
   position: absolute; /* Position the background text */
   bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-  color: #f1f1f1; /* Grey text */
+  background: rgb(253, 253, 253); /* Fallback color */
+  background: rgba(255, 252, 252, 0.766); /* Black background with 0.5 opacity */
+  color: #050505; /* Grey text */
   width: 100%; /* Full width */
   padding: 20px; /* Some padding */
 }
