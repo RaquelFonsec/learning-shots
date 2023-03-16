@@ -1,6 +1,6 @@
 class MeetingsController < ApplicationController
 before_action  :authenticate_user!
-
+before_action :set_trails,only: [:index,:new,:show]
 
   def new
     @meeting = Meeting.new
@@ -9,14 +9,16 @@ before_action  :authenticate_user!
   def create
     @meeting = Meeting.new(meeting_params)
     @meeting.user = current_user
-    @meeting.trail =Trail.find(params[:trail_id])
    if @meeting.save
 redirect_to meetings_path,notice: "trail added to calendar"
-
+   else
+    render :new, notice:@meeting.errors.messages
     end
   end
 
-
+  def show
+    @meeting = Meeting.find(params[:id])
+  end
 
   def index
     # Scope your query to the dates being shown:
@@ -28,11 +30,16 @@ redirect_to meetings_path,notice: "trail added to calendar"
 
     # Or, for a weekly view:
       @meetings = Meeting.where(start_time: @start_date.beginning_of_week..@start_date.end_of_week)
+
   end
 private
 
+def set_trails
+  @trails = Trail.where(user:current_user)
+end
+
 def meeting_params
-  params.require(:meeting).permit(:start_time,:end_time)
+  params.require(:meeting).permit(:trail_id,:start_time,:end_time)
 
 end
 end

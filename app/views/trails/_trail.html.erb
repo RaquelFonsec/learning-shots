@@ -1,7 +1,9 @@
 <div class="row col-6">
   <div class="cards" id="cards-show">
     <div class="card" id="card-show">
+    <% if trail.photo.attached? %>
       <img class="card-img-top" src="<%= cl_image_path trail.photo.key, crop: :fill %>" alt="Card image cap">
+      <%end %>
       <div class="content">
         <h3 class="card-title"><strong><%=trail.title%></strong></h3>
         <p class="card-text"><%=trail.description%></p>
@@ -21,4 +23,3 @@
     <% end %>
   </div>
 </div>
-
