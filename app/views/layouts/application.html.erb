@@ -14,11 +14,16 @@
   </head>
 
   <body>
-  <%= render "shared/navbar" %>
-  <%= render "shared/flashes" %>
-  <div class="padding-body">
-    <%= yield %>
-  </div>
+  <% if params[:controller] == "pages" && params[:action] == "home"%>
+    <div class="padding-body">
+      <%= yield %>
+    </div>
+    <% else %>
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+      <div class="padding-body">
+        <%= yield %>
+      </div>
+    <% end %>
   </body>
-  <%= render "shared/footer" %>
 </html>
