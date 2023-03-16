@@ -1,7 +1,7 @@
 <div class="container text-center font-weight-bold">
  <div class="hero">
     <% if current_user.trails.any? %>
-      <h2><strong>Boas vindas <%= current_user.first_name %> <%= current_user.last_name %>.</strong></h2>
+      <h2><strong>Boas vindas <%= (current_user.first_name).capitalize %> <%= (current_user.last_name).capitalize %>.</strong></h2>
       <h2>Agora você pode criar sua próximo Trilha</h2>
       <%= link_to "Nova Trilha", new_trail_path, class: "btn btn-primary mb-3 botao-index mt-1" %>
       <h3>Ou aproveitar as Trilhas já existentes</h3>
@@ -19,7 +19,11 @@
     <% @trails.each do |trail| %>
       <%= link_to trail_path(trail) do %>
         <div class="card">
+          <% if trail.photo.attached? %>
           <%= cl_image_tag trail.photo.key, crop: :fill, class: "card-img-top" %>
+          <% else %>
+          <%= image_tag "trail-photo-default.JPG", class: "card-img-top" %>
+          <% end %>
           <div class="content">
             <h3 class="card-title"><strong><%=trail.title%></strong></h3>
             <p class="card-text"><%=trail.description%></p>
