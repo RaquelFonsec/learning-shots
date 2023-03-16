@@ -6,10 +6,13 @@ Rails.application.routes.draw do
 
 
   resources :trails do
+    resources :followers, only: [:create]
     resources :video_contents,only: [:new, :create]
     resources :reviews, only: [:new, :create]
     resources :meetings, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :video_contents, only:[:show,:destroy]
   resources :meetings, only: :index
+  resources :followers, only: [:destroy]
+
 end

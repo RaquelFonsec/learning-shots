@@ -18,8 +18,12 @@
   <div class="row col-6">
     <%= link_to "Back to trails", trails_path %>
     <%# if policy(@trail).edit? %>
-      <%= link_to "Edit this trail", edit_trail_path(@trail) %>
-      <%= button_to "Destroy this trail", @trail, method: :delete, data: {confirm: "Are you sure?"} %>
+      <% if current_user.id == @trail.user_id  %>
+        <%= link_to "Edit this trail", edit_trail_path(@trail) %>
+        <%= button_to "Destroy this trail", @trail, method: :delete, data: {confirm: "Are you sure?"} %>
+      <% else %>
+       <%#= button_to "Seguir Trilha", followers_path(@trail), method: :post %>
+      <% end %>
     <%# end %>
   </div>
 </div>
