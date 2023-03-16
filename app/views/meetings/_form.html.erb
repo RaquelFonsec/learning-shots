@@ -1,0 +1,20 @@
+
+<%= simple_form_for @meeting, data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+  <%= f.submit 'Schedule your appointment' %>
+<% end %>
+<%= form_with(model: meeting, local: true) do |form| %>
+  <% if meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+      <% meeting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
