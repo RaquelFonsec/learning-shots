@@ -25,6 +25,5 @@
 
 
 <% if @meeting.persisted? %>
-  <%= link_to 'Editar', edit_meeting_path(@meeting) %>
-  <%= link_to 'Excluir', meeting_path(@meeting), method: :delete, data: { confirm: 'Tem certeza?' } %>
+  <%= link_to 'Excluir', meeting_path(@meeting), method: :delete, data: { turbo_method: "delete",confirm: 'Tem certeza?' } %>
 <% end %>
