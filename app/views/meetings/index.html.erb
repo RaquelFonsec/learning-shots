@@ -1,6 +1,8 @@
 
-<%= @start_date %>
-<%= @meetings.count %>
+<%@meetings.count %>
+
+<%= link_to "new routine",new_meeting_path,class: "btn btn-info" %>
+
 <div class="calendar-container">
   <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
     <%= date %>
