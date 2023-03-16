@@ -21,3 +21,10 @@
     </ul>
   </div>
 <% end %>
+
+
+
+<% if @meeting.persisted? %>
+  <%= link_to 'Editar', edit_meeting_path(@meeting) %>
+  <%= link_to 'Excluir', meeting_path(@meeting), method: :delete, data: { confirm: 'Tem certeza?' } %>
+<% end %>
