@@ -9,8 +9,11 @@
       <% @trails.each do |trail| %>
         <%= link_to trail_path(trail) do %>
           <div class="card">
+            <% if trail.photo.attached? %>
             <%= cl_image_tag trail.photo.key, crop: :fill, class: "card-img-top" %>
-            <%# link_to image_tag("https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VzaGl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", class: "card-img-top"), trail %>
+            <% else %>
+            <%= image_tag "trail-photo-default.JPG", class: "card-img-top" %>
+            <% end %>
             <div class="content">
               <h3 class="card-title"><strong><%=trail.title%></strong></h3>
               <p class="card-text"><%=trail.description%></p>

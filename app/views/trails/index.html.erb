@@ -1,24 +1,35 @@
-<div class="container d-flex justify-content-center mt-5">
-  <div class="row col-6">
-    <input TYPE="text" placeholder="O que  quer aprender hoje?"/>
+<div class="container text-center font-weight-bold">
+ <div class="hero">
+    <% if current_user.trails.any? %>
+      <h2><strong>Boas vindas <%= (current_user.first_name).capitalize %> <%= (current_user.last_name).capitalize %>.</strong></h2>
+      <h2>Agora você pode criar sua próximo Trilha</h2>
+      <%= link_to "Nova Trilha", new_trail_path, class: "btn btn-primary mb-3 botao-index mt-1" %>
+      <h3>Ou aproveitar as Trilhas já existentes</h3>
+    <% else %>
+      <h2><strong>Boas vindas <%= current_user.first_name %> <%= current_user.last_name %>.</strong></h2>
+      <h2>Seja bem vindo ao Learning Shots.</h2>
+      <h3>Para começar sua experiencia, crie uma nova Trilha clicando no botão abaixo.</h3>
+      <%= link_to "Crie sua primeira Trilha", new_trail_path, class: "btn btn-primary mb-3 botao-index mt-1" %>
+      <h3>Ou aproveitar as Trilhas já existentes</h3>
+    <% end %>
   </div>
 </div>
 <div class="container">
-  <%# <div class=""> %>
-    <div class="cards" id="cards-index">
-      <% @trails.each do |trail| %>
-        <%= link_to trail_path(trail) do %>
-          <div class="card">
-            <%= cl_image_tag trail.photo.key, crop: :fill, class: "card-img-top" %>
-            <%# link_to image_tag("https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VzaGl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", class: "card-img-top"), trail %>
-            <div class="content">
-              <h3 class="card-title"><strong><%=trail.title%></strong></h3>
-              <p class="card-text"><%=trail.description%></p>
-            </div>
+  <div class="cards" id="cards-index">
+    <% @trails.each do |trail| %>
+      <%= link_to trail_path(trail) do %>
+        <div class="card">
+          <% if trail.photo.attached? %>
+          <%= cl_image_tag trail.photo.key, crop: :fill, class: "card-img-top" %>
+          <% else %>
+          <%= image_tag "trail-photo-default.JPG", class: "card-img-top" %>
+          <% end %>
+          <div class="content">
+            <h3 class="card-title"><strong><%=trail.title%></strong></h3>
+            <p class="card-text"><%=trail.description%></p>
           </div>
-        <% end %>
+        </div>
       <% end %>
-    </div>
-  <%# </div> %>
+    <% end %>
+  </div>
 </div>
-<%# <%= link_to "New trail", new_trail_path %>
