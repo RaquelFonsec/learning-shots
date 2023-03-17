@@ -1,15 +1,21 @@
 
 <%@meetings.count %>
 
-<%= link_to "new routine",new_meeting_path,class: "btn btn-info" %>
+<%= link_to "nova rotina",new_meeting_path,class: "btn btn-info" %>
 
-<div class="calendar-container">
-  <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
-    <%= date %>
+<div class="calendar-container" style="height:80vh">
+  <%= week_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
+    <%= date.to_formatted_s(:short) %>
 
     <% meetings.each do |meeting| %>
       <div class="meeting">
-        <p><%= meeting.trail.title %></p>
+        <p><%= link_to meeting.trail.title, trail_path(meeting.trail) %></p>
+        <%= link_to meeting_path(meeting),method: :delete, data:{turbo_method:"delete"} do  %>
+        <i class="fa-solid fa-trash"></i>
+        <%end %>
+        <%= link_to edit_meeting_path(meeting), method: :get, title: "Editar reunião" do %>
+        <i class="fa-solid fa-pencil"></i>
+        <%end %>
         <small><%= meeting.time unless meeting.multi_days? %></small>
       </div>
     <% end %>

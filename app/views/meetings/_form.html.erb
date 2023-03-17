@@ -21,3 +21,9 @@
     </ul>
   </div>
 <% end %>
+
+
+
+<% if @meeting.persisted? %>
+  <%= link_to 'Excluir', meeting_path(@meeting), method: :delete, data: { turbo_method: "delete",confirm: 'Tem certeza?' } %>
+<% end %>
