@@ -1,9 +1,8 @@
 
 <%@meetings.count %>
 
-<%= link_to "nova rotina",new_meeting_path,class: "btn btn-info" %>
+<%= link_to "new routine",new_meeting_path,class: "btn btn-info" %>
 
 <div class="calendar-container" style="height:80vh">
 <%=render "meetings/week_calendar" %>
 </div>
-
