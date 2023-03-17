@@ -31,20 +31,20 @@
     </div>
   <% end %>
 </div>
-  <div class="buttons d-flex justify-content-center">
-    <%# if policy(@trail).edit? %>
-      <% if current_user.id == @trail.user_id  %>
-      <div>
-        <%= link_to "Back", trails_path, class: "btn btn-primary" %>
-      </div>
-      <div>
-        <%= link_to "Edit", edit_trail_path(@trail), class: "btn btn-success mx-5" %>
-      </div>
-      <% else %>
-      <div>
-        <%= link_to "Back", trails_path, class: "btn btn-primary" %>
-        <%#= button_to "Seguir Trilha", followers_path(@trail), method: :post %>
-      </div>
-      <% end %>
-    <%# end %>
-  </div>
+<div class="buttons d-flex justify-content-center">
+  <%# if policy(@trail).edit? %>
+    <% if current_user.id == @trail.user_id  %>
+    <div>
+      <%= link_to "Back", trails_path, class: "btn btn-primary" %>
+    </div>
+    <div>
+      <%= link_to "Edit", edit_trail_path(@trail), class: "btn btn-success mx-5" %>
+    </div>
+    <% else %>
+    <div>
+      <%= link_to "Back", trails_path, class: "btn btn-primary" %>
+      <%#= button_to "Seguir Trilha", followers_path(@trail), method: :post %>
+    </div>
+    <% end %>
+  <%# end %>
+</div>

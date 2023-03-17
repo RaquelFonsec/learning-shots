@@ -8,12 +8,15 @@
     <% end %>
     <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
   </div>
-
-  <table class="table table-striped">
+<div class="btn-group" role="group">
+  <%= link_to "week", weekly_meetings_path(view: "week"), class: "btn btn-secondary" %>
+  <%= link_to "month", monthly_meetings_path(view: "month"), class: "btn btn-secondary" %>
+</div>
+  <table class="table table-striped" style="height:80vh;" >
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <th><%=t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>

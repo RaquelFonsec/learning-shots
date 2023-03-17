@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :photo])
   end
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
 
 
 
@@ -28,9 +32,16 @@ class ApplicationController < ActionController::Base
 #    redirect_to root_path
 #  end
 
-#  private
+private
+  def skip_pundit?
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
 
-#  def skip_pundit?
-#    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
-#  end
+  def after_sign_up_path_for(resource)
+    trails_path
+  end
+
+  def after_sign_in_path_for(resource)
+    trails_path
+  end
 end

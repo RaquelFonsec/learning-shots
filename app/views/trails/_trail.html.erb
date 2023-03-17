@@ -17,3 +17,28 @@
             </div>
           <% else %>
         </div>
+<div class="row col-6">
+  <div class="cards" id="cards-show">
+    <div class="card" id="card-show">
+    <% if trail.photo.attached? %>
+      <img class="card-img-top" src="<%= cl_image_path trail.photo.key, crop: :fill %>" alt="Card image cap">
+      <%end %>
+      <div class="content">
+        <h3 class="card-title"><strong><%=trail.title%></strong></h3>
+        <p class="card-text"><%=trail.description%></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row col-6">
+  <div class="cards">
+    <% trail.video_contents.each do |video| %>
+      <div class="card" id="card-video">
+        <img class="card-img-top" src="<%= video.thumb_url %>" alt="">
+        <h3><%=video.title %> <%= link_to "see video","https://www.youtube.com/watch?v=#{video.video_id}", target: "_blank" %></h3>
+        <%#= button_to "Destroy this video", video_content_path(video), method: :delete, data: {turbo: false, confirm: "Are you sure?"} %>
+        <%= button_to "Delete Video", video_content_path(video), method: :delete, remote: true, data: {turbo: false, confirm: "Are you sure?", "turbo-confirm": "Are you sure?", "turbo-method": "delete", "controller": "video-content" } %>
+      </div>
+    <% end %>
+  </div>
+</div>

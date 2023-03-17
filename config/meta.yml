@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "Learnin Shots"
+meta_title: "Learning Shots - Organize your learning trail"
+meta_description: "Learning Trails"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@learning-shots"   # required for Twitter Cards
