@@ -7,7 +7,7 @@
     <%= f.input :photo, as: :file %>
     <%= f.input :title  %>
     <%= f.input :description %>
-    <%= f.input :category %>
+    <%= f.input :category, collection: Trail::CATEGORIES.map { |category| category.capitalize } %>
   </div>
 
   <div class="form-actions mx-auto row justify-content-center">
@@ -18,7 +18,7 @@
     <%= f.button :submit, class: "btn btn-success" %>
     </div>
     <div class="col text-center">
-    <%= button_to "Delete", @trail, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger remove-btn" if @trail.id %>
+    <%= button_to "Delete", @trail, turbo_method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-danger remove-btn" if @trail.id %>
     </div>
   </div>
 <% end %>
