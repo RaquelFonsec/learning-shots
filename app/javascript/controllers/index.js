@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import FlashesController from "./flashes_controller"
+application.register("flashes", FlashesController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 

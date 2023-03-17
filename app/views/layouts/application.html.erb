@@ -38,7 +38,9 @@
     </div>
     <% else %>
       <%= render "shared/navbar" %>
-      <%= render "shared/flashes" %>
+      <div data-controller="flashes">
+  <%= render 'shared/flashes' %>
+</div>
       <div class="padding-body">
         <%= yield %>
       </div>

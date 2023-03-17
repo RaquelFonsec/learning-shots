@@ -10,5 +10,10 @@ Rails.application.routes.draw do
   end
 
   resources :video_contents, only:[:show,:destroy]
-  resources :meetings, only: [:index, :new, :create, :edit, :update, :destroy]
-end
+  resources :meetings, only: [:index, :new, :create, :edit, :update, :destroy] do
+    collection do
+      get "weekly"
+      get "monthly"
+    end
+    end
+  end
