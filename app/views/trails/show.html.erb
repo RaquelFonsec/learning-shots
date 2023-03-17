@@ -16,11 +16,10 @@
 <div>
 <div class="container d-flex justify-content-start">
   <div class="row col-6">
-    <%= link_to "Back to trails", trails_path %>
+    <%= link_to "Back to My Trails", trails_path %>
     <%# if policy(@trail).edit? %>
-      <%= link_to "Edit this trail", edit_trail_path(@trail) %>
-      <%= button_to "Destroy this trail", @trail, method: :delete, data: {confirm: "Are you sure?"} %>
+      <%= link_to "Edit this Trail", edit_trail_path(@trail) %>
+      <%= button_to "Delete this Trail", @trail, method: :delete, data: {confirm: "Are you sure?"} %>
     <%# end %>
   </div>
 </div>
-

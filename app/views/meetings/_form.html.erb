@@ -7,13 +7,13 @@
   <%= f.input :end_time, as: :string, input_html: { data: { controller: 'flatpickr' }} %>
 
 <%= f.input :trail_id, collection: @trails, value_method: :id, label: "Select a Trail" ,include_blank: false %>
-<%= f.submit 'Agende seu horário' %>
+<%= f.submit 'Book your Trail' %>
 
 <% end %>
 
 <% if meeting.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(meeting.errors.count, "error") %> proibiu esta reunião de ser salva:</h2>
+    <h2><%= pluralize(meeting.errors.count, "error") %> This Trails cannot be booked:</h2>
     <ul>
       <% meeting.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -25,5 +25,5 @@
 
 
 <% if @meeting.persisted? %>
-  <%= link_to 'Excluir', meeting_path(@meeting), method: :delete, data: { turbo_method: "delete",confirm: 'Tem certeza?' } %>
+  <%= link_to 'Delete', meeting_path(@meeting), method: :delete, data: { turbo_method: "delete",confirm: 'Are you sure?' } %>
 <% end %>

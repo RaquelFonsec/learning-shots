@@ -4,16 +4,13 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :photo, as: :file %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :category %>
+    <%= f.input :photo, as: :file, label: "Define your Trail cover image:"%>
+    <%= f.input :title, label: "Define your Trail title:"%>
+    <%= f.input :description, label: "Define your Trail description:"%>
+    <%= f.input :category, label: "Define a category to your Trail:" %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
-
-
-

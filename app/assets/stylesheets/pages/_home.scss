@@ -20,22 +20,28 @@
 }
 
 .container-landing {
-  width: 900px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  width: 1000px;
   margin: 0 auto;
   padding: 0;
 }
 
 #landing-question {
   font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: bolder;
   font-style: normal;
-  font-size: 38;
+  font-size: 42px;
+}
+
+#landing-details {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-style: normal;
+  font-size: 19px;
 }
 
 #landing-info {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-style: normal;
-  font-size: 16;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .padding-body {

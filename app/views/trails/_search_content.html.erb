@@ -4,7 +4,7 @@
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Search for Youtube Videos",
+    placeholder: "What are you looking for?",
     data: { "youtube-search-target" => "query"}
   %>
   <%= submit_tag "Search!", class: "btn btn-primary mr-3" %>
@@ -25,4 +25,3 @@
   </ul>
 <% else %>
 <% end %>
-

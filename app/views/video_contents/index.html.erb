@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Minha Página</title>
+    <title>My viewe</title>
   </head>
 
 
@@ -28,7 +28,7 @@
         <td><%= video_content.trail_id %></td>
         <td><%= link_to 'Show', video_content %></td>
         <td><%= link_to 'Edit', edit_video_content_path(video_content) %></td>
-        <td><%= link_to 'Destroy', video_content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', video_content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
