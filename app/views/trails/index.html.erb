@@ -6,7 +6,7 @@
       <%= link_to "Nova Trilha", new_trail_path, class: "btn btn-primary mb-3 botao-index mt-1" %>
       <h3>Ou aproveitar as Trilhas já existentes</h3>
     <% else %>
-      <h2><strong>Boas vindas <%= current_user.first_name %> <%= current_user.last_name %>.</strong></h2>
+      <h2><strong>Boas vindas <%= (current_user.first_name).capitalize %> <%= (current_user.last_name).capitalize %>.</strong></h2>
       <h2>Seja bem vindo ao Learning Shots.</h2>
       <h3>Para começar sua experiencia, crie uma nova Trilha clicando no botão abaixo.</h3>
       <%= link_to "Crie sua primeira Trilha", new_trail_path, class: "btn btn-primary mb-3 botao-index mt-1" %>

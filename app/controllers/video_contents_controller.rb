@@ -45,7 +45,7 @@ class VideoContentsController < ApplicationController
   def destroy
     @video_content.destroy
     respond_to do |format|
-      format.html { redirect_to trail_path(@video_content.trail), notice: 'O conteudo do video foi excluido com sucesso' }
+      format.html { redirect_to edit_trail_path(@video_content.trail), notice: 'O conteudo do video foi excluido com sucesso' }
       format.json { head :no_content }
     end
   end

@@ -8,3 +8,12 @@
     <% end %>
   </div>
 </div>
+
+
+        <div>
+          <% if current_user.id == @trail.user_id %>
+            <div class="btn btn-success video-content-btn">
+              <%= link_to "See Video","https://www.youtube.com/watch?v=#{video.video_id}", class: "vertical-text", target: "_blank" %></h3>
+            </div>
+          <% else %>
+        </div>
