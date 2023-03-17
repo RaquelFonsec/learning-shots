@@ -9,7 +9,10 @@
     </div>
     <%# link_to 'Create meeting', new_meeting_path, class: 'btn btn-outline-warning' %>
   </div>
-
+<div class="btn-group" role="group">
+  <%= link_to "Semana", weekly_meetings_path(view: "week"), class: "btn btn-secondary" %>
+  <%= link_to "Mês", monthly_meetings_path(view: "month"), class: "btn btn-secondary" %>
+</div>
   <table class="table table-striped">
     <thead>
       <tr>
