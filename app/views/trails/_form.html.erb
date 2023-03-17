@@ -10,7 +10,15 @@
     <%= f.input :category, label: "Define a category to your Trail:" %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions mx-auto row justify-content-center">
+    <div class="col text-center">
+    <%= link_to "Back", @trail, class: "btn btn-primary" %>
+    </div>
+    <div class="col text-center">
+    <%= f.button :submit, class: "btn btn-success" %>
+    </div>
+    <div class="col text-center">
+    <%= button_to "Delete", @trail, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger remove-btn" if @trail.id %>
+    </div>
   </div>
 <% end %>

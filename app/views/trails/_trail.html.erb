@@ -1,3 +1,22 @@
+<div class="container">
+  <div class="row">
+    <%= render "trails/search_content", locals:{trail: @trail} %>
+    <% if @results.present? %>
+      <%@results.each do |video| %>
+      <%= render "trails/video", locals:{video: video} %>
+      <%end %>
+    <% end %>
+  </div>
+</div>
+
+
+        <div>
+          <% if current_user.id == @trail.user_id %>
+            <div class="btn btn-success video-content-btn">
+              <%= link_to "See Video","https://www.youtube.com/watch?v=#{video.video_id}", class: "vertical-text", target: "_blank" %></h3>
+            </div>
+          <% else %>
+        </div>
 <div class="row col-6">
   <div class="cards" id="cards-show">
     <div class="card" id="card-show">

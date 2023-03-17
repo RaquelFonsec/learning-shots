@@ -6,11 +6,12 @@
       <%= link_to "New Trail", new_trail_path, class: "btn btn-primary mb-3 botao-index mt-1" %>
       <h3>Or you can enjoy the available trending Trails</h3>
     <% else %>
-      <h2><strong>Welcome <%= current_user.first_name %> <%= current_user.last_name %>.</strong></h2>
+      <h2><strong>Welcome <%= (current_user.first_name).capitalize %> <%= (current_user.last_name).capitalize %>.</strong></h2>
       <h2>Welcome to Learning Shots.</h2>
       <h3>To start your journey, create a new Trail using the button bellow.</h3>
       <%= link_to "Create your first Trail", new_trail_path, class: "btn btn-primary mb-3 botao-index mt-1" %>
       <h3>Or you can enjoy the available trending Trails</h3>
+
     <% end %>
   </div>
 </div>

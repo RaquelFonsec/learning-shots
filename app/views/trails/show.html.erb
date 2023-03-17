@@ -1,25 +1,51 @@
-<div class="container d-flex justify-content-center">
-  <div class="row col-6">
-    <%= render "trails/search_content", locals:{trail: @trail} %>
-    <% if @results.present? %>
-      <%@results.each do |video| %>
-      <%= render "trails/video", locals:{video: video} %>
-      <%end %>
-    <% end %>
-  </div>
-</div>
 <div class="container show-trails">
-
-  <%= render @trail %>
-
-</div>
-<div>
-<div class="container d-flex justify-content-start">
-  <div class="row col-6">
-    <%= link_to "Back to My Trails", trails_path %>
-    <%# if policy(@trail).edit? %>
-      <%= link_to "Edit this Trail", edit_trail_path(@trail) %>
-      <%= button_to "Delete this Trail", @trail, method: :delete, data: {confirm: "Are you sure?"} %>
-    <%# end %>
+  <div class="cards" id="cards-show">
+    <div class="card" id="card-show">
+      <% if @trail.photo.attached? %>
+        <%= cl_image_tag @trail.photo.key, crop: :fill, class: "card-img-top" %>
+        <% else %>
+        <%= image_tag "trail-photo-default.JPG", class: "card-img-top" %>
+      <% end %>
+      <div class="content">
+        <h3 class="card-title"><strong><%= @trail.title %></strong></h3>
+        <p class="card-text"><%= @trail.description %></p>
+      </div>
+    </div>
   </div>
+</div>
+<div class="cards">
+  <% @trail.video_contents.each do |video| %>
+    <div class="mb-3 w-75 mx-auto">
+      <%= link_to "https://www.youtube.com/watch?v=#{video.video_id}", target: "_blank", class: "mx-0" do %>
+        <div class="d-flex card-show">
+          <div class="card-img" id="img-video-show">
+            <img src="<%= video.thumb_url %>" alt="Image description">
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              <p id="title-video-show"><%= video.title %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div class="buttons d-flex justify-content-center">
+  <%# if policy(@trail).edit? %>
+    <% if current_user.id == @trail.user_id  %>
+    <div>
+      <%= link_to "Back to My Trails", trails_path, class: "btn btn-primary" %>
+    </div>
+    <div>
+      <%= link_to "Edit this Trail", edit_trail_path(@trail), class: "btn btn-success mx-5" %>
+    </div>
+    <% else %>
+    <div>
+      <%= link_to "Go back!", trails_path, class: "btn btn-primary" %>
+      <%#= button_to "Follow this Trail", followers_path(@trail), method: :post %>
+    </div>
+    <% end %>
+  <%# end %>
+
 </div>
