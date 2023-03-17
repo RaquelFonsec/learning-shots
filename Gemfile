@@ -82,3 +82,4 @@ gem "simple_calendar", "~> 2.4"
 gem "faker", "~> 3.1"
 
 gem "cloudinary"
+gem 'flatpickr'
