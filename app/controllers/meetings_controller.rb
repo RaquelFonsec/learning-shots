@@ -1,6 +1,6 @@
 class MeetingsController < ApplicationController
 before_action  :authenticate_user!
-before_action :set_trails,only: [:index,:new,:show]
+before_action :set_trails,only: [:index,:new,:show,:edit,:update]
 
 
 def index
@@ -13,6 +13,26 @@ def index
 
 end
 
+def weekly
+  @start_date = params.fetch(:start_date, Date.today).to_date
+    @meetings = Meeting.where(start_time: @start_date.beginning_of_week..@start_date.end_of_week,user: current_user)
+    if @meetings.empty?
+
+      @meetings = Meeting.where(end_time: @start_date.beginning_of_week..@start_date.end_of_week,user: current_user)
+    end
+
+end
+
+
+def monthly
+  @start_date = params.fetch(:start_date, Date.today).to_date
+    @meetings = Meeting.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month,user: current_user)
+    if @meetings.empty?
+
+      @meetings = Meeting.where(end_time: @start_date.beginning_of_month..@start_date.end_of_month,user: current_user)
+    end
+
+end
 
 
 

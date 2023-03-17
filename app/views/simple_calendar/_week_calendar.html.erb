@@ -8,7 +8,10 @@
     <% end %>
     <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
   </div>
-
+<div class="btn-group" role="group">
+  <%= link_to "week", weekly_meetings_path(view: "week"), class: "btn btn-secondary" %>
+  <%= link_to "month", monthly_meetings_path(view: "month"), class: "btn btn-secondary" %>
+</div>
   <table class="table table-striped" style="height:80vh;" >
     <thead>
       <tr>
