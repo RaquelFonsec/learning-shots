@@ -40,8 +40,10 @@
     <div>
       <%= link_to "Edit", edit_trail_path(@trail), class: "btn btn-success mx-5" %>
     </div>
+        <%= button_to "Delete", @trail, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger remove-btn" if @trail.id %>
     <% else %>
     <div>
+
       <%= link_to "Back", trails_path, class: "btn btn-primary" %>
       <%#= button_to "Seguir Trilha", followers_path(@trail), method: :post %>
     </div>

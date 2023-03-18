@@ -14,6 +14,14 @@
     <% end %>
   </div>
 </div>
+<div>
+  <ul class="filter-icons">
+    <li><%= link_to "All", trails_path %></li>
+    <% Trail::CATEGORIES.each do |category| %>
+      <%= link_to category.capitalize, trails_path(filter: category) %></li>
+    <% end %>
+  </ul>
+</div>
 <div class="container">
   <div class="cards" id="cards-index">
     <% @trails.each do |trail| %>
@@ -25,8 +33,9 @@
           <%= image_tag "trail-photo-default.JPG", class: "card-img-top" %>
           <% end %>
           <div class="content">
-            <h3 class="card-title"><strong><%=trail.title%></strong></h3>
-            <p class="card-text"><%=trail.description%></p>
+            <h3 class="card-title"><strong><%= trail.title %></strong></h3>
+            <p class="card-text"><%= trail.description %></p>
+            <p class="card-text"><%= trail.category %></p>
           </div>
         </div>
       <% end %>
