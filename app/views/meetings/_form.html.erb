@@ -13,7 +13,7 @@
 
 <% if meeting.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(meeting.errors.count, "error") %> prohibed this routine to be created:</h2>
+    <h2><%= pluralize(meeting.errors.count, "error") %> This Trails cannot be booked:</h2>
     <ul>
       <% meeting.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -21,8 +21,6 @@
     </ul>
   </div>
 <% end %>
-
-
 
 <% if @meeting.persisted? %>
   <%= link_to 'Delete routine', meeting_path(@meeting), method: :delete, data: { turbo_method: "delete",confirm: 'Tem certeza?' } %>
