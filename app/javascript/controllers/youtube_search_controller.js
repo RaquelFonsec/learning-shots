@@ -36,20 +36,20 @@ export default class extends Controller {
           let html = "";
           videos.forEach(video => {
             html += `
-              <div class="video" data-controller="video-content"
+              <div class="video card-show" data-controller="video-content"
               data-video-content-trail-value="${this.trailValue}"
              data-video-content-title-value="${video.snippet.title}"
              data-video-content-description-value="${video.snippet.description}"
              data-video-content-thumbnail-value="${video.snippet.thumbnails.medium.url}"
               data-video-content-id-value="${video.id.videoId}">
-                <div class="thumbnail">
+                <div class="thumbnail card-img" id="img-video-show">
                   <img src="${video.snippet.thumbnails.medium.url}">
                 </div>
-                <div class="info">
-                  <h2>${video.snippet.title}</h2>
+                <div class="info card-content">
+                  <h2 class="card-title">${video.snippet.title}</h2>
                   <p>${video.snippet.description}</p>
                 </div>
-                <button class="btn btn-sm btn-secondary" data-video-content-target="button" data-action="click->video-content#create">Add video</button>
+                <button class="btn btn-sm btn-success" data-video-content-target="button" data-action="click->video-content#create">Add video</button>
                   <div><small hidden="true" data-video-content-target="message">Video added sucessfully </small></div>
               </div>
             `;

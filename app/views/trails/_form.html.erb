@@ -18,9 +18,6 @@
       <div class="col text-center">
       <%= f.button :submit, class: "btn btn-success" %>
       </div>
-      <div class="col text-center">
-      <%= button_to "Delete Trail", @trail, turbo_method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-danger remove-btn" if @trail.id %>
-      </div>
     </div>
   <% end %>
 
