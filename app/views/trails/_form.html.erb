@@ -4,21 +4,21 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :photo, as: :file %>
-    <%= f.input :title  %>
-    <%= f.input :description %>
-    <%= f.input :category, collection: Trail::CATEGORIES.map { |category| category.capitalize } %>
+    <%= f.input :photo, as: :file, label: "Pick up an image as your Trail's cover" %>
+    <%= f.input :title, label: "Insert your Trail's title:"  %>
+    <%= f.input :description, label: "You can also define a description to your Trail:" %>
+    <%= f.input :category, label: "Which category best fit with your Trail content?", collection: Trail::CATEGORIES.map { |category| category.capitalize } %>
   </div>
 
   <div class="form-actions mx-auto row justify-content-center">
     <div class="col text-center">
-    <%= link_to "Back", @trail, class: "btn btn-primary" %>
+    <%= link_to "Go back!", @trail, class: "btn btn-primary" %>
     </div>
     <div class="col text-center">
     <%= f.button :submit, class: "btn btn-success" %>
     </div>
     <div class="col text-center">
-    <%= button_to "Delete", @trail, turbo_method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-danger remove-btn" if @trail.id %>
+    <%= button_to "Delete Trail", @trail, turbo_method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-danger remove-btn" if @trail.id %>
     </div>
   </div>
 <% end %>

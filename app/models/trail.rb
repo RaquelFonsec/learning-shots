@@ -4,6 +4,6 @@ class Trail < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :meetings, dependent: :destroy
   has_one_attached :photo
-  CATEGORIES = ["gastronomia", "natureza", "cultura", "esportes", "tecnologia", "beleza", "moda", "geek", "Pop", "outros"]
+  CATEGORIES = ["Culture", "Entertainment", "Fashion", "Gastronomy", "Music", "Nature", "Phylosophy", "Self-Care", "Sports", "Technology", "Others"]
   validates :category, presence: true, inclusion: { in: CATEGORIES.map { |category| category.capitalize }}
 end

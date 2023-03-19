@@ -38,6 +38,7 @@
         <h3><%=video.title %> <%= link_to "see video","https://www.youtube.com/watch?v=#{video.video_id}", target: "_blank" %></h3>
         <%#= button_to "Destroy this video", video_content_path(video), method: :delete, data: {turbo: false, confirm: "Are you sure?"} %>
         <%= button_to "Delete Video", video_content_path(video), method: :delete, remote: true, data: {turbo: false, confirm: "Are you sure?", "turbo-confirm": "Are you sure?", "turbo-method": "delete", "controller": "video-content" } %>
+        <br>
       </div>
     <% end %>
   </div>

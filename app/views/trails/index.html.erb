@@ -1,26 +1,17 @@
 <div class="container text-center font-weight-bold">
  <div class="hero">
     <% if current_user.trails.any? %>
-      <h2><strong>Boas vindas <%= (current_user.first_name&.capitalize) %> <%= (current_user.last_name&.capitalize) %>.</strong></h2>
-      <h2>Agora você pode criar sua próximo Trilha</h2>
-      <%= link_to "Nova Trilha", new_trail_path, class: "btn btn-primary mb-3 botao-index mt-1" %>
-      <h3>Ou aproveitar as Trilhas já existentes</h3>
+      <h3><strong>Welcome <%= (current_user.first_name&.capitalize) %> <%= (current_user.last_name&.capitalize) %>!</strong></h3>
+      <p id="landing-about">Now you can create a new Trail.</p>
+      <%= link_to "Create Trail", new_trail_path, class: "btn btn-primary mb-3" %>
+      <p id="landing-about">Or enjoy the available Trails bellow:</p>
     <% else %>
-      <h2><strong>Boas vindas <%= (current_user.first_name).capitalize %> <%= (current_user.last_name).capitalize %>.</strong></h2>
-      <h2>Seja bem vindo ao Learning Shots.</h2>
-      <h3>Para começar sua experiencia, crie uma nova Trilha clicando no botão abaixo.</h3>
-      <%= link_to "Crie sua primeira Trilha", new_trail_path, class: "btn btn-primary mb-3 botao-index mt-1" %>
-      <h3>Ou aproveitar as Trilhas já existentes</h3>
+      <h3><strong>Welcome <%= (current_user.first_name).capitalize %> <%= (current_user.last_name).capitalize %>!</strong></h3>
+      <p id="landing-about">Seems like you don't have any Trail. To create one just click in the buttom bellow.</p>
+      <%= link_to "Create Trail", new_trail_path, class: "btn btn-primary mb-3" %>
+      <p id="landing-about">Or enjoy the available Trails bellow:</p>
     <% end %>
   </div>
-</div>
-<div>
-  <ul class="filter-icons">
-    <li><%= link_to "All", trails_path %></li>
-    <% Trail::CATEGORIES.each do |category| %>
-      <%= link_to category.capitalize, trails_path(filter: category) %></li>
-    <% end %>
-  </ul>
 </div>
 <div class="container">
   <div class="cards" id="cards-index">

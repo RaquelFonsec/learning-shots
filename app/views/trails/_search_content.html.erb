@@ -4,13 +4,13 @@
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Search for Youtube Videos",
+      placeholder: "What you wanna learn today?",
       data: { "youtube-search-target" => "query"}
     %>
-    <%= submit_tag "Search!", class: "btn btn-primary mr-3" %>
+    <%= submit_tag "Search!", class: "btn btn-primary" %>
   <% end %>
   <div data-youtube-search-target="results">
-    <%= link_to "clear results", edit_trail_path(@trail.id), data: {"youtube-search-target": "clearResults"}, hidden: true %>
+    <%= link_to "Refresh your search bar", edit_trail_path(@trail.id), data: {"youtube-search-target": "clearResults"}, hidden: true %>
   </div>
 </div>
 <% if @results.present? %>

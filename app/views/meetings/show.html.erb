@@ -1,11 +1,11 @@
-<h1>Meeting Details</h1>
+<h1>Routine Details</h1>
 
 <p><strong>Trail:</strong> <%= @meeting.trail.name %></p>
 <p><strong>Start time:</strong> <%= @meeting.start_time %></p>
 <p><strong>End time:</strong> <%= @meeting.end_time %></p>
 
-<%= link_to 'Editar', edit_meeting_path(@meeting) %>
+<%= link_to 'Edit routine', edit_meeting_path(@meeting) %>
 
-<%= link_to 'Excluir', meeting_path(@meeting),
+<%= link_to 'Delete routine', meeting_path(@meeting),
             method: :delete,
-            data: { confirm: 'Tem certeza?' } %>
+            data: { confirm: 'Are you sure?' } %>
