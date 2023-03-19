@@ -83,3 +83,4 @@ gem "faker", "~> 3.1"
 
 gem "cloudinary"
 gem 'flatpickr'
+gem "toastr-rails"
