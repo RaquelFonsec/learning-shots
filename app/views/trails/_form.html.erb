@@ -8,10 +8,10 @@
       <%= f.input :photo, as: :file, label: "Pick up an image as your Trail's cover" %>
       <%= f.input :title, label: "Insert your Trail's title:"  %>
       <%= f.input :description, label: "You can also define a description to your Trail:" %>
-      <%= f.input :category, label: "Which category best fits with your Trail content?", collection: Trail::CATEGORIES.map { |category| category.capitalize } %>
+      <%= f.input :category, label: "Which category better fits with your Trail content?", collection: Trail::CATEGORIES.map { |category| category.capitalize } %>
     </div>
 
-    <div class="form-actions mx-auto row justify-content-center">
+    <div class="form-actions row d-flex justify-content-between">
       <div class="col text-center">
       <%= link_to "Go back!", @trail, class: "btn btn-primary" %>
       </div>
