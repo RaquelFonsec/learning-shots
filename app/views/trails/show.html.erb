@@ -1,6 +1,6 @@
-<div class="container show-trails">
+<div class="container show-trails mt-3">
   <div class="cards" id="cards-show">
-    <div class="card" id="card-show">
+    <div class="card" id="card-show" >
       <% if @trail.photo.attached? %>
         <%= cl_image_tag @trail.photo.key, crop: :fill, class: "card-img-top" %>
         <% else %>
@@ -35,16 +35,16 @@
   <%# if policy(@trail).edit? %>
     <% if current_user.id == @trail.user_id  %>
     <div>
-      <%= link_to "Back", trails_path, class: "btn btn-primary" %>
+      <%= link_to "Go back!", trails_path, class: "btn btn-primary" %>
     </div>
     <div>
-      <%= link_to "Edit", edit_trail_path(@trail), class: "btn btn-success mx-5" %>
+      <%= link_to "Edit Trail", edit_trail_path(@trail), class: "btn btn-success mx-5" %>
     </div>
-        <%= button_to "Delete", @trail, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger remove-btn" if @trail.id %>
+        <%= button_to "Delete Trail", @trail, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger remove-btn" if @trail.id %>
     <% else %>
     <div>
 
-      <%= link_to "Back", trails_path, class: "btn btn-primary" %>
+      <%= link_to "Go back!", trails_path, class: "btn btn-primary" %>
       <%#= button_to "Seguir Trilha", followers_path(@trail), method: :post %>
     </div>
     <% end %>

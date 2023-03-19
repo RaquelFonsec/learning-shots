@@ -4,7 +4,7 @@
 
     <%= render "form", trail: @trail %>
 
-    <%= button_to "Delete", @trail, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger remove-btn" if @trail.id %>
+    <%= button_to "Delete Trail", @trail, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger remove-btn" if @trail.id %>
   </div>
 
   <div class="col p-4">

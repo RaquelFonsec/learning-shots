@@ -3,17 +3,17 @@
 <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <%= f.input :start_time, as: :string, input_html:{ data: { controller: 'flatpickr' } } %>
-  <%= f.input :end_time, as: :string, input_html: { data: { controller: 'flatpickr' }} %>
+  <%= f.input :start_time, as: :string, label: "Select an start date and time", input_html:{ data: { controller: 'flatpickr' } } %>
+  <%= f.input :end_time, as: :string, label: "Select an end date and time", input_html: { data: { controller: 'flatpickr' }} %>
 
-<%= f.input :trail_id, collection: @trails, value_method: :id, label: "Select a Trail" ,include_blank: false %>
-<%= f.submit 'Agende seu horário' %>
+<%= f.input :trail_id, collection: @trails, value_method: :id, label: "Select one of your Trails do book into your calendar:" ,include_blank: false %>
+<%= f.submit 'Book your routine' %>
 
 <% end %>
 
 <% if meeting.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(meeting.errors.count, "error") %> proibiu esta reunião de ser salva:</h2>
+    <h2><%= pluralize(meeting.errors.count, "error") %> prohibed this routine to be created:</h2>
     <ul>
       <% meeting.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -25,5 +25,5 @@
 
 
 <% if @meeting.persisted? %>
-  <%= link_to 'Excluir', meeting_path(@meeting), method: :delete, data: { turbo_method: "delete",confirm: 'Tem certeza?' } %>
+  <%= link_to 'Delete routine', meeting_path(@meeting), method: :delete, data: { turbo_method: "delete",confirm: 'Tem certeza?' } %>
 <% end %>

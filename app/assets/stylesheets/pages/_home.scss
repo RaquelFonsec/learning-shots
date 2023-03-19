@@ -14,28 +14,36 @@
 }
 
 .container {
-  max-width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0;
 }
 
 .container-landing {
-  width: 900px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  width: 1000px;
+  font-family: 'Plus Jakarta Sans';
   margin: 0 auto;
   padding: 0;
 }
 
 #landing-question {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans';
   font-style: normal;
-  font-size: 38;
+  font-weight: bold;
+  font-size: 48px;
+}
+
+#landing-about {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 #landing-info {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans';
   font-style: normal;
-  font-size: 16;
+  font-size: 18px;
 }
 
 .padding-body {
