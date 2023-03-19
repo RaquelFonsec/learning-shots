@@ -7,7 +7,7 @@
     <%else %>
 <%= render 'form', meeting: @meeting %>
 <%end %>
-<%= link_to 'Go back!', meetings_path, class: 'btn btn-secondary' %>
 
+<%= link_to 'Go back!', meetings_path, class: 'btn btn-primary' %>
 
 <%= flash[:alert] if flash[:alert].present? %>

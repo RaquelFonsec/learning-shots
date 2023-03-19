@@ -1,11 +1,14 @@
+
 <h1>Routine details</h1>
+
 
 <p><strong>Trail:</strong> <%= @meeting.trail.name %></p>
 <p><strong>Start time:</strong> <%= @meeting.start_time %></p>
 <p><strong>End time:</strong> <%= @meeting.end_time %></p>
 
-<%= link_to 'Edit', edit_meeting_path(@meeting) %>
 
-<%= link_to 'Delete', meeting_path(@meeting),
+<%= link_to 'Edit routine', edit_meeting_path(@meeting) %>
+
+<%= link_to 'Delete routine', meeting_path(@meeting),
             method: :delete,
             data: { confirm: 'Are you sure?' } %>

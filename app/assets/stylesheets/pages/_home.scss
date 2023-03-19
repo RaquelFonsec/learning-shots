@@ -9,39 +9,47 @@
   font-weight: 700;
   font-size: 48px;
   line-height: 60px;
-  letter-spacing: 0.05em;
+https://github.com/GilmeBR/learning-shots/pull/34/conflict?name=app%252Fassets%252Fstylesheets%252Fpages%252F_home.scss&ancestor_oid=62d524e6c3b2526d4cfe78843601dd9b82f63855&base_oid=34a09ee396ada79bf1be99195be29119306eed4e&head_oid=ea751af6dd81536398ab16162d24352f5467dfc7  letter-spacing: 0.05em;
   text-align: center;
 }
 
 .container {
-  max-width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.container-forms {
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0;
 }
 
 .container-landing {
   width: 1000px;
+  font-family: 'Plus Jakarta Sans';
   margin: 0 auto;
   padding: 0;
 }
 
 #landing-question {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: bolder;
+  font-family: 'Plus Jakarta Sans';
   font-style: normal;
-  font-size: 42px;
+  font-weight: bold;
+  font-size: 48px;
 }
 
-#landing-details {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+#landing-about {
+  font-family: 'Plus Jakarta Sans';
   font-style: normal;
-  font-size: 19px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 #landing-info {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: bold;
-  font-size: 16px;
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-size: 18px;
 }
 
 .padding-body {
@@ -130,4 +138,27 @@
 
 .todos-os-videos {
   padding: 0 100px 0 100px;
+}
+
+.filter-icons {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+
+  li:hover {
+    color: #2d3bd7;
+    transition: 0.5s;
+  }
+
+  a {
+    color: #000;
+  }
+
+  a:hover {
+    color: #2d3bd7;
+    transition: 0.5s;
+  }
 }

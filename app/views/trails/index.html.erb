@@ -1,17 +1,15 @@
 <div class="container text-center font-weight-bold">
  <div class="hero">
     <% if current_user.trails.any? %>
-      <h2><strong>Welcome <%= (current_user.first_name).capitalize %> <%= (current_user.last_name).capitalize %>.</strong></h2>
-      <h2>Now you can create a new Trail</h2>
-      <%= link_to "New Trail", new_trail_path, class: "btn btn-primary mb-3 botao-index mt-1" %>
-      <h3>Or you can enjoy the available trending Trails</h3>
+      <h3><strong>Welcome <%= (current_user.first_name&.capitalize) %> <%= (current_user.last_name&.capitalize) %>!</strong></h3>
+      <p id="landing-about">Now you can create a new Trail.</p>
+      <%= link_to "Create Trail", new_trail_path, class: "btn btn-primary mb-3" %>
+      <p id="landing-about">Or enjoy the available Trails bellow:</p>
     <% else %>
-      <h2><strong>Welcome <%= (current_user.first_name).capitalize %> <%= (current_user.last_name).capitalize %>.</strong></h2>
-      <h2>Welcome to Learning Shots.</h2>
-      <h3>To start your journey, create a new Trail using the button bellow.</h3>
-      <%= link_to "Create your first Trail", new_trail_path, class: "btn btn-primary mb-3 botao-index mt-1" %>
-      <h3>Or you can enjoy the available trending Trails</h3>
-
+      <h3><strong>Welcome <%= (current_user.first_name).capitalize %> <%= (current_user.last_name).capitalize %>!</strong></h3>
+      <p id="landing-about">Seems like you don't have any Trail. To create one just click in the buttom bellow.</p>
+      <%= link_to "Create Trail", new_trail_path, class: "btn btn-primary mb-3" %>
+      <p id="landing-about">Or enjoy the available Trails bellow:</p>
     <% end %>
   </div>
 </div>
@@ -26,8 +24,9 @@
           <%= image_tag "trail-photo-default.JPG", class: "card-img-top" %>
           <% end %>
           <div class="content">
-            <h3 class="card-title"><strong><%=trail.title%></strong></h3>
-            <p class="card-text"><%=trail.description%></p>
+            <h3 class="card-title"><strong><%= trail.title %></strong></h3>
+            <p class="card-text"><%= trail.description %></p>
+            <p class="card-text"><%= trail.category %></p>
           </div>
         </div>
       <% end %>
