@@ -50,7 +50,6 @@ export default class extends Controller {
                     <p>${video.snippet.description}</p>
                   </div>
                   <button class="btn btn-sm btn-success" data-video-content-target="button" data-action="click->video-content#create">Add video</button>
-                    <div><small hidden="true" data-video-content-target="message">Video added sucessfully </small></div>
                 </div>
             `;
           });
