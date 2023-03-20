@@ -1,15 +1,12 @@
-
 <div class="simple-calendar">
   <div class="d-flex align-items-center justify-content-center">
     <div class="calendar-heading">
-      <%= link_to t('simple_calendar.previous', default: '<< Previous'), calendar.url_for_previous_view , class: 'btn btn-link'%>
-      <% if calendar.number_of_weeks == 1 %>
-        <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number%></span>
-      <% else %>
-        <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %> - <%= calendar.end_week %></span>
-      <% end %>
+      <%= link_to t('simple_calendar.previous', default: '<< Previous'), calendar.url_for_previous_view, class: 'btn btn-link' %>
+      <span class="calendar-title btn btn-link"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
       <%= link_to t('simple_calendar.next', default: 'Next >>'), calendar.url_for_next_view, class: 'btn btn-link' %>
     </div>
+
+
   </div>
 <div>
     <div class="btn-group" role="group">
