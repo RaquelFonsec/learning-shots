@@ -47,9 +47,9 @@ def create
   @meeting = Meeting.new(meeting_params)
   @meeting.user = current_user
   if @meeting.save
-    redirect_to meetings_path, notice: "trail added to calendar"
+    redirect_to monthly_meetings_path, notice: "You have a new routine booked!"
   else
-    flash.now[:alert] = 'Não foi possível adicionar a trilha ao calendário'
+    flash.now[:alert] = 'Please try again!'
     render :new
   end
 end
@@ -66,9 +66,9 @@ end
   def update
     @meeting = Meeting.find(params[:id])
     if @meeting.update(meeting_params)
-      redirect_to @meeting
+      redirect_to monthly_meetings_path
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -76,7 +76,7 @@ end
   def destroy
     @meeting = Meeting.find(params[:id])
     @meeting.destroy
-    redirect_to meetings_path, notice: 'Reunião excluída com sucesso!'
+    redirect_to monthly_meetings_path, notice: 'Routine deleted!'
   end
 
 

@@ -1,7 +1,14 @@
 
+<div class="container-forms d-flex justify-content-center text-center mt-2">
+  <div class="row">
+    <h3>Editing your routine<h3>
+    <p id="landing-info"> Feel free to update you routine!</p>
+  </div>
+</div>
+<div class="container-forms d-flex justify-content-center mt-2">
+    <%= render 'form', meeting: @meeting %>
+</div>
 
-<h1>Edit routine</h1>
-
-<%= render 'form', meeting: @meeting %>
-
-<%= link_to 'Cancel', meetings_path %>
+<div class="container-forms d-flex justify-content-center mt-2">
+  <%= link_to 'Cancel', meetings_path, class: 'btn btn-primary' %>
+</div>
