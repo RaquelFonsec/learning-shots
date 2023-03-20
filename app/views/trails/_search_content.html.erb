@@ -8,8 +8,8 @@
     %>
     <%= submit_tag "Search!", class: "btn btn-primary" %>
   <% end %>
-  <div data-youtube-search-target="results">
-    <%= link_to "Refresh your search bar", edit_trail_path(@trail.id), data: {"youtube-search-target": "clearResults"}, hidden: true %>
+  <div data-youtube-search-target="container results cards">
+    <%= link_to "Refresh your search bar", edit_trail_path(@trail.id), class: "btn btn-secondary", data: {"youtube-search-target": "clearResults"}, hidden: true %>
   </div>
 </div>
 <% if @results.present? %>
