@@ -8,7 +8,8 @@
 <div class="container-forms d-flex justify-content-center mt-2">
     <%= render 'form', meeting: @meeting %>
 </div>
-
-<div class="container-forms d-flex justify-content-center mt-2">
-  <%= link_to 'Cancel', meetings_path, class: 'btn btn-primary' %>
+<div class="d-flex justify-content-center mt-2">
+  <div class="container-forms d-flex justify-content-center mt-2">
+    <%= link_to 'Cancel', meetings_path, class: 'btn btn-primary mx-3' %>    <%= link_to 'Delete routine', meeting_path(@meeting), class: "btn btn-danger",  method: :delete, data: { turbo_method: "delete",confirm: 'Are you sure?' } %>
+  </div>
 </div>
