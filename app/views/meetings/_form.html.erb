@@ -1,29 +1,29 @@
+<div class="container-forms d-flex justify-content-center mt-2">
 
-<%= simple_form_for @meeting do |f| %>
-<%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= simple_form_for @meeting do |f| %>
+  <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <%= f.input :start_time, as: :string, label: "Select an start date and time", input_html:{ data: { controller: 'flatpickr' } } %>
-  <%= f.input :end_time, as: :string, label: "Select an end date and time", input_html: { data: { controller: 'flatpickr' }} %>
+    <%= f.input :start_time, as: :string, label: "Select an start date and time", input_html:{ data: { controller: 'flatpickr' } } %>
+    <%= f.input :end_time, as: :string, label: "Select an end date and time", input_html: { data: { controller: 'flatpickr' }} %>
 
-<%= f.input :trail_id, collection: @trails, value_method: :id, label: "Select one of your Trails do book into your calendar:" ,include_blank: false %>
-<%= f.submit 'Book your routine' %>
+  <%= f.input :trail_id, collection: @trails, value_method: :id, label: "Select one of your Trails do book into this routine:" ,include_blank: false %>
+  <%= f.submit 'Book your routine' %>
 
-<% end %>
+  <% end %>
 
-<% if meeting.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(meeting.errors.count, "error") %> prohibed this routine to be created:</h2>
-    <ul>
-      <% meeting.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+  <% if meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meeting.errors.count, "error") %> This Trails cannot be booked:</h2>
+      <ul>
+        <% meeting.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-
-
-<% if @meeting.persisted? %>
-  <%= link_to 'Delete routine', meeting_path(@meeting), method: :delete, data: { turbo_method: "delete",confirm: 'Tem certeza?' } %>
-<% end %>
+  <% if @meeting.persisted? %>
+    <%= link_to 'Delete routine', meeting_path(@meeting), method: :delete, data: { turbo_method: "delete",confirm: 'Are you sure?' } %>
+  <% end %>
+</div>

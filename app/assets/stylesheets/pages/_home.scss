@@ -9,8 +9,12 @@
   font-weight: 700;
   font-size: 48px;
   line-height: 60px;
-  letter-spacing: 0.05em;
   text-align: center;
+}
+
+.toastr-top-right {
+  top: 63px;
+  right: 10px;
 }
 
 .container {
@@ -20,6 +24,11 @@
 }
 
 .container-forms {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.container-routine {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0;

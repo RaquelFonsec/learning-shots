@@ -1,8 +1,18 @@
+<div class="container-forms d-flex justify-content-center text-center mt-4">
+  <div class="row">
+    <h3>Pick up a free time to start a learning journey!<h3>
+    <p id="landing-info">Discipline and constancy are crucial to build up new habits.</p>
+    <p id="landing-info">And to help you to in this path, create as much routines you need to seize the most of your Trails!</p>
+  </div>
+</div>
 
-<%@meetings.count %>
+<div class="container-forms d-flex justify-content-center">
+  <%@meetings.count %>
+  <%= link_to "Create new routine",new_meeting_path,class: "btn btn-primary" %>
+</div>
 
-<%= link_to "new routine",new_meeting_path,class: "btn btn-info" %>
-
-<div class="calendar-container" style="height:80vh">
-<%=render "meetings/month_calendar" %>
+<div class="container-forms d-flex justify-content-center">
+  <div>
+    <%=render "meetings/month_calendar" %>
+  </div>
 </div>

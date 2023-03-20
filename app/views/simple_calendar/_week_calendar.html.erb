@@ -1,16 +1,20 @@
+
 <div class="simple-calendar">
-  <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
-    <% if calendar.number_of_weeks == 1 %>
-      <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %></span>
-    <% else %>
-      <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %> - <%= calendar.end_week %></span>
-    <% end %>
-    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="calendar-heading">
+      <%= link_to t('simple_calendar.previous', default: '<< Previous'), calendar.url_for_previous_view , class: 'btn btn-link'%>
+      <% if calendar.number_of_weeks == 1 %>
+        <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number%></span>
+      <% else %>
+        <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %> - <%= calendar.end_week %></span>
+      <% end %>
+      <%= link_to t('simple_calendar.next', default: 'Next >>'), calendar.url_for_next_view, class: 'btn btn-link' %>
+    </div>
   </div>
-<div class="btn-group" role="group">
-  <%= link_to "week", weekly_meetings_path(view: "week"), class: "btn btn-secondary" %>
-  <%= link_to "month", monthly_meetings_path(view: "month"), class: "btn btn-secondary" %>
+<div>
+    <div class="btn-group" role="group">
+      <p> <%= link_to "week view", weekly_meetings_path(view: "week"), class: "btn btn-info" %> <%= link_to "month view", monthly_meetings_path(view: "month"), class: "btn btn-info" %></p>
+    </div>
 </div>
   <table class="table table-striped" style="height:80vh;" >
     <thead>
