@@ -6,11 +6,11 @@
 
     <%= f.input :start_time, as: :string, label: "Select an start date and time", input_html:{ data: { controller: 'flatpickr' } } %>
     <%= f.input :end_time, as: :string, label: "Select an end date and time", input_html: { data: { controller: 'flatpickr' }} %>
+    <%= f.input :trail_id, collection: @trails, value_method: :id, label: "Select one of your Trails do book into this routine:" ,include_blank: false %>
+    <%= f.submit 'Book your routine', class: 'btn btn-info' %>
+    <% end %>
+  </div>
 
-  <%= f.input :trail_id, collection: @trails, value_method: :id, label: "Select one of your Trails do book into this routine:" ,include_blank: false %>
-  <%= f.submit 'Book your routine' %>
-
-  <% end %>
 
   <% if meeting.errors.any? %>
     <div id="error_explanation">
